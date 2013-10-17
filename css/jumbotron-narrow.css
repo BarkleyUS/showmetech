@@ -78,15 +78,3 @@ body {
     padding: 48px 120px;
   }
 }
-
-.full .col {
-    text-align: center;
-}
-
-img {
-    width: 60px;
-}
-
-.jumbotron .row {
-    font-size: 0.7em;
-}
