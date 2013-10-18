@@ -6,8 +6,8 @@ Reveal.initialize({
     history: true,
     center: true,
 
-    theme: 'beige', // Leave this alone to keep presentations consistent
-    transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+    theme: 'showmetech',
+    transition: 'linear',
 
     // Optional libraries used to extend on reveal.js
     dependencies: [
