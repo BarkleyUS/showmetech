@@ -27,6 +27,11 @@
             .table td {
                 font-size: 0.6em;
             }
+
+            .table.zoomed th,
+            .table.zoomed td {
+                font-size: 1.0em;
+            }
         </style>
 
         <!-- If the query includes 'print-pdf', use the PDF print sheet -->
@@ -99,10 +104,18 @@
                 </section>
                 <section>
                     <h2>Movement</h2>
-                    <table class="table">
+                    <table class="table zoomed">
                         <tr>
                             <th><code>h, j, k, l</code></th>
                             <td>left, down, up, right</td>
+                        </tr>
+                        <tr>
+                            <th><code>i</code></th>
+                            <td>insert</td>
+                        </tr>
+                        <tr>
+                            <th><code>&lt;esc&gt;</code></th>
+                            <td>return to normal mode</td>
                         </tr>
                     </table>
                 </section>
@@ -118,10 +131,6 @@
                             <tr>
                                 <th>Character</th>
                                 <th>Action</th>
-                            </tr>
-                            <tr>
-                                <th><code>i</code></th>
-                                <td>insert</td>
                             </tr>
                             <tr>
                                 <th><code>c</code></th>
@@ -142,6 +151,10 @@
                             <tr>
                                 <th><code>p</code></th>
                                 <td>put (paste)</td>
+                            </tr>
+                            <tr>
+                                <th><code>.</code></th>
+                                <td>redo</td>
                             </tr>
                         </table>
                     </section>
@@ -199,6 +212,48 @@
                             </tr>
                         </table>
                     </section>
+                </section>
+
+                <section>
+                    <h3>Putting It Together</h3>
+                    <table class="table">
+                        <tr>
+                            <th>Keystrokes</th>
+                            <th>Translation</th>
+                        </tr>
+                        <tr>
+                            <th><code>d$</code></th>
+                            <td>delete to the end of the line</td>
+                        </tr>
+                        <tr>
+                            <th><code>ciw</code></th>
+                            <td>change inside word</td>
+                        </tr>
+                        <tr>
+                            <th><code>ci"</code></th>
+                            <td>change inside quotes</td>
+                        </tr>
+                        <tr>
+                            <th><code>.</code></th>
+                            <td>do that again</td>
+                        </tr>
+                        <tr>
+                            <th><code>vt&lt;</code></th>
+                            <td>visually select to carat</td>
+                        </tr>
+                        <tr>
+                            <th><code>yy</code></th>
+                            <td>yank current line</td>
+                        </tr>
+                        <tr>
+                            <th><code>5p</code></th>
+                            <td>put yanked text into buffer 5 times</td>
+                        </tr>
+                        <tr>
+                            <th><code>3dd</code></th>
+                            <td>delete current line three times</td>
+                        </tr>
+                    </table>
                 </section>
 
             </div>
