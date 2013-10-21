@@ -52,14 +52,14 @@
             </section>
 
             <section>
-                <h2>Presentation code samples</h2>
+                <h2>Code samples</h2>
                 <h3>Requesting camera access</h3>
                     <pre><code class="javascript">
     navigator.webkitGetUserMedia({
         audio: false,
         video: true
     }, function(stream) {
-        window.stream = stream;
+        window.stream = stream;  // Just so we can inspect it in the console
         var video = document.getElementById('video-gum-demo');
         video.src = window.URL.createObjectURL(stream);
         video.play();
