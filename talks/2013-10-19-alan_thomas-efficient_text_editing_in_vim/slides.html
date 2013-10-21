@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Show-Me Tech Slides</title>
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="http://barkleyus.github.io/showmetech/reveal.js/css/reveal.min.css">
+        <link rel="stylesheet" href="http://barkleyus.github.io/showmetech/reveal.js/css/theme/showmetech.css" id="theme">
+        <link rel="stylesheet" href="css/tables.css">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="http://barkleyus.github.io/showmetech/reveal.js/lib/css/zenburn.css">
+
+        <style>
+            .table th {
+                font-weight: bold;
+            }
+
+            .table th,
+            .table td {
+                font-size: 0.6em;
+            }
+
+            .table.zoomed th,
+            .table.zoomed td {
+                font-size: 1.0em;
+            }
+
+            code.big-code {
+                font-size: 1.5em;
+            }
+        </style>
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="http://barkleyus.github.io/showmetech/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <div class="slides">
+                <section>
+                    <h1>Efficient Text Editing in Vim</h1>
+                    <h3>Alan Thomas</h3>
+                    <p>
+                        <small>
+                        November 2013 / <a href="http://barkleyus.github.io/showmetech/">Show-Me Tech</a>
+                        </small>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>What is Vim?</h2>
+                    <img src="images/vim.png" alt="Vim">
+                </section>
+
+                <section>
+                    <h2>History</h2>
+                    <ul>
+                        <li class="fragment">Vi editor - 1976</li>
+                        <li class="fragment">Single Unix Specification<br>POSIX</li>
+                        <li class="fragment">Vi IMproved - 1991</li>
+                        <li class="fragment">(Almost adheres)</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Why is it Neat?</h2>
+                    <ul>
+                        <li class="fragment">Just text</li>
+                        <li class="fragment">Fingers on home row</li>
+                        <li class="fragment">Fast, fast, fast, fast, fast</li>
+                        <li class="fragment">A dialect, not shortcuts</li>
+                        <li class="fragment">Configurable</li>
+                        <li class="fragment">Extensible</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Normal Mode</h2>
+                        <img src="images/normal_mode.png" alt="Normal Mode">
+                        <p>WTF I CAN'T TYPE???!?!</p>
+                    </section>
+                    <section>
+                        <h2>Insert Mode</h2>
+                        <img src="images/insert_mode.png" alt="Insert Mode">
+                        <p>WHEW, THIS IS BETTER</p>
+                    </section>
+                    <section>
+                        <h2>Visual Mode</h2> <img src="images/visual_mode.png" alt="Visual Mode">
+                        <p>WAIT, I THOUGHT THIS WAS A TERMINAL???</p>
+                    </section>
+                </section>
+                <section>
+                    <h2>Movement</h2>
+                    <table class="table zoomed">
+                        <tr>
+                            <th><code>h, j, k, l</code></th>
+                            <td>left, down, up, right</td>
+                        </tr>
+                        <tr>
+                            <th><code>i</code></th>
+                            <td>insert</td>
+                        </tr>
+                        <tr>
+                            <th><code>&lt;esc&gt;</code></th>
+                            <td>return to normal mode</td>
+                        </tr>
+                    </table>
+                    <p>
+                        <br>
+                        <br>
+                        <small>
+                            <strong>Pro tip:</strong> Try these keys in Facebook, Twitter, Gmail, and many others to see vi's far-reaching influence.
+                        </small>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Speak in Sentences</h2>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Verbs</h3>
+                        <table class="table">
+                            <tr>
+                                <th>Character</th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>
+                                <th><code>c</code></th>
+                                <td>change</td>
+                            </tr>
+                            <tr>
+                                <th><code>d</code></th>
+                                <td>delete</td>
+                            </tr>
+                            <tr>
+                                <th><code>v</code></th>
+                                <td>visually select</td>
+                            </tr>
+                            <tr>
+                                <th><code>y</code></th>
+                                <td>yank (copy)</td>
+                            </tr>
+                            <tr>
+                                <th><code>p</code></th>
+                                <td>put (paste)</td>
+                            </tr>
+                            <tr>
+                                <th><code>.</code></th>
+                                <td>repeat</td>
+                            </tr>
+                            <tr>
+                                <th><code>u</code></th>
+                                <td>undo</td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section>
+                        <h3>Nouns</h3>
+                        <table class="table">
+                            <tr>
+                                <th>Character</th>
+                                <th>Meaning</th>
+                            </tr>
+                            <tr>
+                                <th><code>$</code></th>
+                                <td>end of line</td>
+                            </tr>
+                            <tr>
+                                <th><code>^</code></th>
+                                <td>beginning of line</td>
+                            </tr>
+                            <tr>
+                                <th><code>w</code></th>
+                                <td>word</td>
+                            </tr>
+                            <tr>
+                                <th><code>s</code></th>
+                                <td>sentence</td>
+                            </tr>
+                            <tr>
+                                <th><code>b</code></th>
+                                <td>block</td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section>
+                        <h3>Modifiers</h3>
+                        <table class="table">
+                            <tr>
+                                <th>Character</th>
+                                <th>Meaning</th>
+                            </tr>
+                            <tr>
+                                <th><code>t[letter]</code></th>
+                                <td>to [letter]</td>
+                            </tr>
+                            <tr>
+                                <th><code>i</code></th>
+                                <td>inside</td>
+                            </tr>
+                            <tr>
+                                <th><code>5</code></th>
+                                <td>do 5 times</td>
+                            </tr>
+                            <tr>
+                                <th><code>[verb twice]</code></th>
+                                <td>execute on the entire line</td>
+                            </tr>
+                        </table>
+                    </section>
+                </section>
+
+                <section>
+                    <h3>Putting It Together</h3>
+                    <table class="table">
+                        <tr>
+                            <th>Keystrokes</th>
+                            <th>Translation</th>
+                        </tr>
+                        <tr>
+                            <th><code>d$</code></th>
+                            <td>delete to the end of the line</td>
+                        </tr>
+                        <tr>
+                            <th><code>ciw</code></th>
+                            <td>change inside word</td>
+                        </tr>
+                        <tr>
+                            <th><code>ci"</code></th>
+                            <td>change inside quotes</td>
+                        </tr>
+                        <tr>
+                            <th><code>.</code></th>
+                            <td>do that again</td>
+                        </tr>
+                        <tr>
+                            <th><code>vt&lt;</code></th>
+                            <td>visually select to carat</td>
+                        </tr>
+                        <tr>
+                            <th><code>yy</code></th>
+                            <td>yank current line</td>
+                        </tr>
+                        <tr>
+                            <th><code>5p</code></th>
+                            <td>put yanked text into buffer 5 times</td>
+                        </tr>
+                        <tr>
+                            <th><code>3dd</code></th>
+                            <td>delete current line three times</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section>
+                    <img src="images/muscle_memory.jpg" alt="Muscle Memory">
+                </section>
+
+                <section>
+                    <h2>Buffers, Windows, and Tabs</h2>
+                </section>
+
+                <section>
+                    <h2>:commands</h2>
+                    <table class="table">
+                        <tr>
+                            <th>Command</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <th><code>:w [file]</code></th>
+                            <td>write to [file]</td>
+                        </tr>
+                        <tr>
+                            <th><code>:e [file]</code></th>
+                            <td>edit [file]</td>
+                        </tr>
+                        <tr>
+                            <th><code>:sp [file]</code></th>
+                            <td>open [file] in split window</td>
+                        </tr>
+                        <tr>
+                            <th><code>:vs [file]</code></th>
+                            <td>open [file] in vertically split window</td>
+                        </tr>
+                        <tr>
+                            <th><code>:tabnew</code></th>
+                            <td>open a new tab</td>
+                        </tr>
+                        <tr>
+                            <th><code>:tabf [file]</code></th>
+                            <td>open [file] in a new tab</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section>
+                    <h2>Configuration</h2>
+                    <code>.vimrc</code>
+                </section>
+
+                <section>
+                    <h2>Plugins</h2>
+                    <p>Can it do X? Yes.</p>
+                </section>
+
+                <section>
+                    <p>
+                        Open your terminal. Type,
+                    </p>
+                    <br>
+                    <code class="big-code">
+                        $ vimtutor
+                    </code>
+                    <br>
+                    <br>
+                    <br>
+                    <h2>Try this.</h2>
+                </section>
+
+                <section>
+                    <h2>Getting Started Tips</h2>
+                    <ul>
+                        <li>Start with unconfigured Vim to gain muscle memory.</li>
+                        <li>DO NOT touch the arrow keys.</li>
+                        <li>Everything's weird at first. Don't tweak anything until you're comfortable with the basics.</li>
+                        <li>Start without plugins so you can learn what comes from Vim versus what comes from the plugin.</li>
+                        <li>Find your personal pain points while working, then configure them away.</li>
+                        <li>Add plugins as the contribute to your workflow.</li>
+                        <li>Avoid pre-packaged monolithic confiugrations. Try to build your own perfect fit.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Thanks!</h2>
+                    <p>
+                        Slides, resources, and links at:
+                    </p>
+                    <p>
+                        <a href="http://barkleyus.github.io/showmetech">http://barkleyus.github.io/showmetech</a>
+                    </p>
+                </section>
+
+            </div>
+
+        </div>
+
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/lib/js/head.min.js"></script>
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/js/reveal.min.js"></script>
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/defaults.js"></script>
+
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-28667211-2', 'barkleyus.github.io');
+        ga('send', 'pageview');
+        </script>
+
+    </body>
+</html>
