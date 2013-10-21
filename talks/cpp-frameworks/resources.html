@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Show-Me Tech Resources</title>
+
+        <link href="http://barkleyus.github.io/showmetech/css/bootstrap.css" rel="stylesheet">
+        <link href="http://barkleyus.github.io/showmetech/reveal.js/lib/css/zenburn.css" rel="stylesheet">
+        <link href="http://barkleyus.github.io/showmetech/reveal.js/css/theme/showmetech.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div class="page-header">
+                <h1>The Title of My Talk</h1>
+                <p class="lead">
+                    Presenter Name /
+                    Month YYYY /
+                    <a href="http://barkleyus.github.io/showmetech/">Show-Me Tech</a>
+                </p>
+            </div>
+
+            <section>
+                <h2>A list of links</h2>
+                <ul>
+                    <li><a href="http://barkleyus.com/Clients/show">Barkley client roster</a></li>
+                    <li><a href="http://www.psfk.com/">PSFK</a></li>
+                    <li><a href="http://www.wikihow.com/Cook-Corn">How to Cook Corn</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>An inline code snippet</h2>
+                <pre><code class="python">
+def cook_the_corn(corn):
+    """Cook this corn."""
+    if not corn.shucked:
+        shuck_the_corn(corn)
+
+    water = Water()
+    water.boil()
+    water.submerge(corn)
+    time.sleep(300)
+    return corn
+                </code></pre>
+            </section>
+
+        </div>
+
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/plugin/highlight/highlight.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+    </body>
+</html>
