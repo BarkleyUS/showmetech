@@ -27,6 +27,16 @@
             .table th {
                 font-weight: bold;
             }
+
+            code.headline-code {
+                font-size: 2.5em;
+            }
+
+            video {
+                width: 100%;
+                height: 500px;
+                background: #000;
+            }
         </style>
 
         <!--[if lt IE 9]>
@@ -69,6 +79,30 @@
                             <td><strong>C</strong>ommunication</td>
                         </tr>
                     </table>
+                </section>
+
+                <section>
+                    <code class="headline-code">MediaStream</code>
+                </section>
+
+                <section>
+                    <h2>Lights, Camera, Action</h2>
+                    <pre><code class="javascript">
+    navigator.webkitGetUserMedia({
+        audio: false,
+        video: true
+    }, function(stream) {
+        window.stream = stream;
+        var video = document.getElementById('video-gum-demo');
+        video.src = window.URL.createObjectURL(stream);
+        video.play();
+    });
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>Really, though</h2>
+                    <video id="video-gum-demo"></video>
                 </section>
 
             </div>
