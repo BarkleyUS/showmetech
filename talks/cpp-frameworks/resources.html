@@ -15,43 +15,77 @@
         <div class="container">
 
             <div class="page-header">
-                <h1>The Title of My Talk</h1>
+                <h1>Cinder vs. openFrameworks</h1>
+                <h2>The Creative Coding Framework Battle Royale</h2>
                 <p class="lead">
-                    Presenter Name /
-                    Month YYYY /
+                    Chris Riebschlager /
+                    November 2013 /
                     <a href="http://barkleyus.github.io/showmetech/">Show-Me Tech</a>
                 </p>
             </div>
 
             <section>
-                <h2>A list of links</h2>
+                <h2>Creative Coding Frameworks</h2>
                 <ul>
-                    <li><a href="http://barkleyus.com/Clients/show">Barkley client roster</a></li>
-                    <li><a href="http://www.psfk.com/">PSFK</a></li>
-                    <li><a href="http://www.wikihow.com/Cook-Corn">How to Cook Corn</a></li>
+                    <li><a href="http://processing.org/">Processing.org</a> - Java</li>
+                    <li><a href="http://libcinder.org">LibCinder.org</a> - C++</li>
+                    <li><a href="http://openframeworks.cc">openFrameworks.cc</a> - C++</li>
                 </ul>
             </section>
 
             <section>
-                <h2>An inline code snippet</h2>
-                <pre><code class="python">
-def cook_the_corn(corn):
-    """Cook this corn."""
-    if not corn.shucked:
-        shuck_the_corn(corn)
+                <h2>An Awesome Introduction</h2>
+                <iframe width="640" height="360" src="//www.youtube.com/embed/eBV14-3LT-g?feature=player_embedded" frameborder="0" allowfullscreen></iframe>
+            </section>
 
-    water = Water()
-    water.boil()
-    water.submerge(corn)
-    time.sleep(300)
-    return corn
-                </code></pre>
+            <section>
+                <h2>Processing</h2>
+                <iframe src="//player.vimeo.com/video/60735314" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <h2>Cinder</h2>
+                <iframe src="//player.vimeo.com/video/68615444" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <h2>openFrameworks</h2>
+                <iframe src="//player.vimeo.com/video/74124094" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </section>
+
+            <section>
+                <h2>Load an Image in Cinder</h2>
+                <pre>
+                    <code class="c++">
+void MyApp::loadAnImage() 
+{
+    gl::Texture tex = gl::Texture( loadImage( loadUrl( "http://path.to/image.png" ) ) );
+}
+                    </code>
+                </pre>
+            </section>
+
+            <section>
+                <h2>Load an Image in openFrameworks</h2>
+                <pre>
+                    <code class="c++">
+void MyApp::loadAnImage()
+{
+    ofImage image;
+    image.loadImage("http://path.to/image.png");
+}
+                    </code>
+                </pre>
             </section>
 
         </div>
 
         <script src="http://barkleyus.github.io/showmetech/reveal.js/plugin/highlight/highlight.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
+
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-28667211-2', 'barkleyus.github.io');
+        ga('send', 'pageview');
+        </script>
 
     </body>
 </html>
