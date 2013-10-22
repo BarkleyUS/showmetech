@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Show-Me Tech Slides</title>
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="http://barkleyus.github.io/showmetech/reveal.js/css/reveal.min.css">
+        <link rel="stylesheet" href="http://barkleyus.github.io/showmetech/reveal.js/css/theme/showmetech.css" id="theme">
+        <link rel="stylesheet" href="css/tables.css">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="http://barkleyus.github.io/showmetech/reveal.js/lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="http://barkleyus.github.io/showmetech/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <style>
+            .table th {
+                font-weight: bold;
+            }
+
+            code.headline-code {
+                font-size: 2.5em;
+            }
+
+            video {
+                width: 100%;
+                height: 500px;
+                background: #000;
+            }
+
+            .reveal section img {
+                background: #fff;
+            }
+
+            iframe {
+                width: 100%;
+                height: 700px;
+            }
+
+            .reveal blockquote {
+                text-align: left;
+                width: 90%;
+                background: #eee;
+                padding: 20px;
+            }
+        </style>
+
+        <!--[if lt IE 9]>
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <div class="slides">
+                <section>
+                    <h1>WebRTC Peer-to-Peer Video in the Browser</h1>
+                    <h3>Alan Thomas</h3>
+                    <p>
+                        <small>
+                        <a href="http://barkleyus.github.io/showmetech/">Show-Me Tech</a>
+                        </small>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>An Acrostic</h2>
+                    <table class="table">
+                        <tr>
+                            <th>Web</th>
+                            <td><strong>Web</strong></td>
+                        </tr>
+                        <tr>
+                            <th>R</th>
+                            <td><strong>R</strong>eal</td>
+                        </tr>
+                        <tr>
+                            <th>T</th>
+                            <td><strong>T</strong>ime</td>
+                        </tr>
+                        <tr>
+                            <th>C</th>
+                            <td><strong>C</strong>ommunication</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section>
+                    <code class="headline-code">MediaStream</code>
+                </section>
+
+                <section>
+                    <h2>Lights, Camera, Action</h2>
+                    <pre><code class="javascript">
+    navigator.webkitGetUserMedia({
+        audio: false,
+        video: true
+    }, function(stream) {
+        window.stream = stream;
+        var video = document.getElementById('video-gum-demo');
+        video.src = window.URL.createObjectURL(stream);
+        video.play();
+    });
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>Really, though</h2>
+                    <video id="video-gum-demo"></video>
+                </section>
+
+                <section>
+                    <code class="headline-code">RTCPeerConnection</code>
+                </section>
+
+                <!-- <section> -->
+                <!--     <section> -->
+                <!--         <img src="images/diagram&#45;1.png" alt="Diagram"> -->
+                <!--     </section> -->
+                <!--     <section> -->
+                <!--         <img src="images/diagram&#45;2.png" alt="Diagram"> -->
+                <!--     </section> -->
+                <!--     <section> -->
+                <!--         <img src="images/diagram&#45;3.png" alt="Diagram"> -->
+                <!--     </section> -->
+                <!--     <section> -->
+                <!--         <img src="images/diagram&#45;4.png" alt="Diagram"> -->
+                <!--     </section> -->
+                <!--     <section> -->
+                <!--         <img src="images/diagram&#45;5.png" alt="Diagram"> -->
+                <!--     </section> -->
+                <!--     <section> -->
+                <!--         <a href="https://talky.io/showmetech">http://talky.io/showmetech</a> -->
+                <!--     </section> -->
+                <!-- </section> -->
+                
+                <section>
+                    <section>
+                        <img src="images/stun_turn_1.jpg" alt="STUN/TURN Servers">
+                    </section>
+                    <section>
+                        <img src="images/stun_turn_2.jpg" alt="STUN/TURN Servers">
+                    </section>
+                    <section>
+                        <a href="https://talky.io/showmetech">http://talky.io/showmetech</a>
+                    </section>
+                </section>
+
+                <section>
+                    <code class="headline-code">RTCDataChannel</code>
+                </section>
+
+                <section>
+                    <iframe src="http://simpl.info/rtcdatachannel/"></iframe>
+                </section>
+
+                <section>
+                    <h2>Where are we headed?</h2>
+                </section>
+
+                <section>
+                    <blockquote>
+                        "While the specification does not mandate a maximum duration of a speech input stream, this suggestion [transcripts for live communication] is most appropriate for implementations utilizing a local recognizer. Allowing MediaStreams to be used as an input for a SpeechRecognition object, for example through a new 'inputStream' property as an alternative to the start, stop and abort methods, would enable authors to supply external input to be recognized. This may include, but is not limited to, prerecorded audio files and WebRTC live streams, both from local and remote parties."
+                    </blockquote>
+                    <p>&mdash; Peter Beverloo<br><small>Google Chrome Software Engineer, <a href="http://lists.w3.org/Archives/Public/public-speech-api/2012Sep/0072.html">June 2013 email to the Public Speech API mailing list</a></small></p>
+                </section>
+
+                <section>
+                    <img src="images/screen_share.png" alt="Screen Sharing">
+                </section>
+
+                <section>
+                    <blockquote>
+                        "The intention is eventually to enable a MediaStream for any streaming data source, not just a camera or microphone. This would enable streaming from disc, or from arbitrary data sources such as sensors or other inputs."
+                    </blockquote>
+                    <p>&mdash; Sam Dutton<br><small>Developer Relations at Google, <a href="http://www.html5rocks.com/en/tutorials/webrtc/basics/">Getting Started with WebRTC</a></small></p>
+                </section>
+
+                <section>
+                    <h2>Thanks!</h2>
+                    <p>
+                        Slides, resources, and links at:
+                    </p>
+                    <p>
+                        <a href="http://barkleyus.github.io/showmetech">http://barkleyus.github.io/showmetech</a>
+                    </p>
+                </section>
+            </div>
+
+        </div>
+
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/lib/js/head.min.js"></script>
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/js/reveal.min.js"></script>
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/defaults.js"></script>
+
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-28667211-2', 'barkleyus.github.io');
+        ga('send', 'pageview');
+        </script>
+
+    </body>
+</html>
