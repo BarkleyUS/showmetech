@@ -2,6 +2,10 @@
     text-align: center;
 }
 
+.col img {
+    width: 100%;
+}
+
 .media img {
     width: 60px;
 }
