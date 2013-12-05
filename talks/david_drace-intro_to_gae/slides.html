@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Intro to Google App Engine - David Drace</title>
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="http://barkleyus.github.io/showmetech/reveal.js/css/reveal.min.css">
+        <link rel="stylesheet" href="http://barkleyus.github.io/showmetech/reveal.js/css/theme/showmetech.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="http://barkleyus.github.io/showmetech/reveal.js/lib/css/zenburn.css">
+
+		<!-- Custom styles -->
+        <link rel="stylesheet" href="css/custom.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="http://barkleyus.github.io/showmetech/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+					<img src="img/Google_App_Engine_Logo.png" style="border:none;box-shadow:none;" />
+					<h1>Intro to<br/>Google App Engine</h1>
+                    <h3>David Drace</h3>
+                    <p>
+                        <small>
+                        December 2013 / <a href="http://barkleyus.github.io/showmetech/">Show-Me Tech</a>
+                        </small>
+                    </p>
+
+                </section>
+
+                <section>
+                    <h2>What is it?</h2>
+                    <p>
+                    Google App Engine (GAE) is Google's PaaS that lets you run your apps and sites in the cloud on Google's dime.<sup>*</sup></p>
+					<p>
+						<small>
+							<sup>*</sup>As long as they aren't too big.	
+						</small>
+					</p>
+
+                    <aside class="notes">
+                    Platform as a Service
+                    </aside>
+                </section>
+
+				<section>
+					<h2>Why should I care?</h2>
+					<ul>
+						<li>Easy to build</li>
+						<li>Easy to deploy</li>
+						<li>No servers or software to maintain</li>
+						<li>Automatically scaled</li>
+						<li>Can integrate with Google Apps / SSO</li>
+						<li>Reliable, performant, secure</li>
+						<li>FREE<sup>*</sup></li>
+					</ul>
+					
+					<p><br/>
+						<small>*up to 1GB storage and enough CPU and bandwidth to support <br/>an efficient app serving around 5 million page views per month</small>
+					</p>
+				</section>
+				
+
+				<section>
+					<h2>What are the limitations?</h2>
+					<ul>
+						<li>Schemaless Datastore takes some getting used to</li>
+						<li>Big data operations can be slow, costly</li>
+						<li>Apps can't write to the filesystem (Use Blobstore)</li>
+						<li>Costs could be hard to predict </li>
+					</ul>
+				</section>
+
+
+
+				<section>
+					<h2>What languages can I use?</h2>
+					<ul>
+						<li><strong>Python  2.7</strong> <br/>+Frameworks: Django, CherryPy, Pylons, web.py, web2py</li>
+						<li><strong>Java 7</strong><br/>+JVM languages such as Groovy, JRuby, Scala, Clojure</li>
+						<li><strong>Go 1.1</strong><sup>*</sup></li>
+						<li><strong>PHP 5.4</strong></sup>*</sup></li>
+						<li>More to come?</li>
+					</ul>
+					
+					<p><small><sup>*</sup>Experimental</small></p>
+				</section>
+				
+				
+				<section>
+					<h2>What do I need to get started?</h2>
+					<ul>
+						<li><strong>Python 2.7</strong> (OSX comes with this)</li>
+						<li>App Engine SDK: developers.google.com/appengine/downloads</li>
+						<li>Any IDE or text editor. Google has an Eclipse Plugin.</li>
+					</ul>
+				</section>
+				
+				
+				
+				
+				<section>
+					<h2>What can I build with it?</h2>
+					<h3>Almost Anything.</h3>
+					<p>(As long as you use one of the available languages)</p>
+				</section>
+
+
+				<section>
+					<h2>Demo</h2>
+					<ul>
+						<li>Create an app with GAE Launcher</li>
+						<li>Write the app</li>
+						<li>Tweak settings in app.yaml</li>
+						<li>Test locally</li>
+						<li>Set up the app in GAE</li>
+						<li>Deploy</li>
+						<li>Test</li>
+					</ul>
+				</section>
+
+
+
+                <section>
+                    <h2>Thanks!</h2>
+                    <p>
+                        Slides, resources, and links at:
+                    </p>
+                    <p>
+                        <a href="http://barkleyus.github.io/showmetech">http://barkleyus.github.io/showmetech</a>
+                    </p>
+                </section>
+
+            </div>
+
+        </div>
+
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/lib/js/head.min.js"></script>
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/js/reveal.min.js"></script>
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/defaults.js"></script>
+
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-28667211-2', 'barkleyus.github.io');
+        ga('send', 'pageview');
+        </script>
+
+    </body>
+</html>
