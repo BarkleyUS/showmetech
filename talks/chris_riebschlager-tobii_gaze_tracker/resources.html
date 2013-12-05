@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Show-Me Tech Resources</title>
+
+        <link href="http://barkleyus.github.io/showmetech/css/bootstrap.css" rel="stylesheet">
+        <link href="http://barkleyus.github.io/showmetech/reveal.js/lib/css/zenburn.css" rel="stylesheet">
+        <link href="http://barkleyus.github.io/showmetech/reveal.js/css/theme/showmetech.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div class="page-header">
+                <h1>Tobii Gaze Tracker</h1>
+                <p class="lead">
+                    Chris Riebschlager /
+                    December 2013 /
+                    <a href="http://barkleyus.github.io/showmetech/">Show-Me Tech</a>
+                </p>
+            </div>
+
+            <section>
+                <h2>Links</h2>
+                <ul>
+                    <li><a href="http://www.tobii.com/">Tobii.com</a></li>
+                    <li><a href="http://www.tobii.com/en/about/what-is-eye-tracking/">What is Eye Tracking?</a></li>
+                    <li><a href="http://www.tobii.com/Global/GazeInteraction/GazeInteraction_TobiiEyeTracking_01032013_WEB.pdf?epslanguage=en">Tobii Brochure</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>How It Works</h2>
+                <img src="http://www.tobii.com/ImageVaultFiles/id_2610/cf_4/Tobii-eye-tracking-step-by-step-web-573.jpg" alt="">
+            </section>
+
+            <section>
+                <h2>Code Snippet</h2>
+                <pre><code class="java">
+// Using PEEP Java bindings:
+// https://github.com/ralfbiedert/peep
+peep = new PEEP(this);
+peep.raw().x; // Estimated X Gaze Position
+peep.raw().y; // Estimated Y Gaze Position
+                </code></pre>
+            </section>
+
+        </div>
+
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/plugin/highlight/highlight.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-28667211-2', 'barkleyus.github.io');
+        ga('send', 'pageview');
+        </script>
+
+    </body>
+</html>
