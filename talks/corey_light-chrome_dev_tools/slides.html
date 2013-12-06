@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Show-Me Tech Slides</title>
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="http://barkleyus.github.io/showmetech/reveal.js/css/reveal.min.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="http://barkleyus.github.io/showmetech/reveal.js/css/theme/showmetech.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="http://barkleyus.github.io/showmetech/reveal.js/lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="http://barkleyus.github.io/showmetech/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+        
+        <style>
+          .reveal li > ul{font-size:.8em;}
+          li > [data-markdown] pre{margin-left:0;}
+          .reveal pre{width:auto;}
+          .tal{text-align:left;}
+          .reveal li{margin:0 0 1em 0;}
+        </style>
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1>Chrome Dev Tools</h1>
+                    <h2><em>Surprise and Delight</em></h2>
+                    <h3>Corey Light</h3>
+                    <p>
+                        <small>
+                        December 2013 / <a href="http://barkleyus.github.io/showmetech/">Show-Me Tech</a>
+                        </small>
+                    </p>
+                </section>
+                
+                <section>
+                  <h2>Shortcuts</h2>
+                  <ul>
+                    <style scoped>
+                    li{margin:0 0 1em 0;}
+                    </style>
+                    <li><h3>Launch in inspect-element mode</h3>
+                    <p>Cmd + Shift + C will open up DevTools in inspect element mode so you can inspect the current page immediately.</p></li>
+                    <li><h3>Toggle console</h3>
+                    <p>Esc quickly toggles the console</p></li>
+                    <li><h3>Number Increment/Decrement</h3>
+                    <p>⬆ Increments by 1; while Alt+⬆ Increments by .1</p></li>
+                    <li><h3>See all shortcuts</h3>
+                      <p>? to see 'em all</p></li>
+                  </ul>
+                </section>
+                
+                <section>
+                  <style>
+                  #before:before{content:'∰';font-size:.8em;display:inline-block;margin:0em .2em 0 0;position: relative;top:-0.2em;}
+                  </style>
+                  <h2 id="before">Elements</h2>
+                  <ul>
+                    <li>$0 to use the currently selected element in the console</li>
+                    <li>H to visually hide element</li>
+                    <style>#hoverable:hover{color:goldenrod;-webkit-transition:color 300ms;}</style>
+                    <li id="hoverable">Force Element State - <em>:active, :hover, :focus, :visited</em></li>
+                    <li>Shadow DOM!</li>
+                    <li>Drag and Drop</li>
+                    <li>Event listeners!</li>
+                  </ul>
+                </section>
+                
+                <section>
+                  <h2>Workspaces</h2>
+                  <p>A <span class="strike">new</span> badass way to look at a browser/text editor workflow</p>
+                </section>
+                
+                <section>
+                  <h2>The Console</h2>
+                  <script>window.people = [
+                  {name:'Corey Light',neighborhood:'Hyde Park'},
+                  {name:'Sly James',neighborhood:'Hyde Park'},
+                  {name:'Thomas Jefferson',neighborhood:'Monticello'}
+                  ]</script>
+                  <ul>
+                    <li id="checkMe"><div data-markdown style="min-width:500px">
+                    <script type="text/template">
+                    ```javascript
+                    console.table(people);
+                    
+                    console.dir(checkMe1);
+                    
+                    console.log("%cBlue!", "color: blue;font:20px Georgia");
+                    ```
+                    </script></div></li>
+                  </ul>
+                </section>
+                
+                <section>
+                  <h2>Snippets</h2>
+                  <a href="http://bgrins.github.io/devtools-snippets/" target="_blank">Useful Snippets</a>
+                </section>
+                
+                <section>
+                  <h2>What I didn't Cover</h2>
+                  <ul>
+                    <li>Profiling</li>
+                    <li>Timeline</li>
+                    <li>Audits</li>
+                    <li>Plugins</li>
+                    <li>Canvas Inspection</li>
+                  </ul>
+                </section>
+                  
+                <section>
+                  <h2>Questions?</h2>
+                  <h2>Thanks!</h2>
+                </section>
+                
+            </div><!-- .slides -->
+
+        </div><!-- .reveal -->
+
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/lib/js/head.min.js"></script>
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/js/reveal.min.js"></script>
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/defaults.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-28667211-2', 'barkleyus.github.io');
+        ga('send', 'pageview');
+        </script>
+
+    </body>
+</html>
