@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Show-Me Tech Slides</title>
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="http://barkleyus.github.io/showmetech/reveal.js/css/reveal.min.css">
+        <link rel="stylesheet" href="http://barkleyus.github.io/showmetech/reveal.js/css/theme/showmetech.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="http://barkleyus.github.io/showmetech/reveal.js/lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="http://barkleyus.github.io/showmetech/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+        
+        <style>
+          .reveal li > ul{font-size:.8em;}
+          li > [data-markdown] pre{margin-left:0;}
+          .reveal pre{width:auto;}
+          .tal{text-align:left;}
+        </style>
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1>Making Sense of Dependency with Require.js</h1>
+                    <h3>Corey Light</h3>
+                    <p>
+                        <small>
+                        November 2013 / <a href="http://barkleyus.github.io/showmetech/">Show-Me Tech</a>
+                        </small>
+                    </p>
+                </section>
+                
+                <section>
+                  <h2>AMD</h2>
+                  <h3  class="fragment">(Asynchronous module definition)</h3>
+                  <p class="fragment">"A JavaScript API for defining modules such that the module and its dependencies can be asynchronously loaded."</p>
+                  <a  class="fragment" href="http://requirejs.org/docs/whyamd.html" style="display:block;margin:0 0 1em 0;">Why AMD?</a>
+                  <h4 class="fragment">Who's using it?</h4>
+                  <ul>
+                    <li class="fragment">jQuery 1.7</li>
+                    <li class="fragment">Dojo 1.7</li>
+                    <li class="fragment">EmbedJS</li>
+                    <li class="fragment">Firebug</li>
+                    <li class="fragment">Node</li>
+                  </ul>
+                </section>
+                
+                <section>
+                  <h2>The Old</h2>
+                  <div data-markdown>
+                  <script type="text/template">
+                  ```javascript
+                  (function () {
+                      var $ = this.jQuery;
+
+                      this.myExample = function () {};
+                  }());
+                  
+                  site.plugins = window.plugins;
+                  site.pasta = window.pasta;
+                  ```
+                  </script>
+                  </div>
+                </section>
+                
+                <section>
+                  <h2>The New</h2>
+                  <div data-markdown>
+                  <script type="text/template">
+                  ```javascript
+                  require(['angular','ngAnimate','picturefill','jquery'],start);
+                  
+                  function start(){
+                    console.log(angular) //wee we have it
+                    console.log(jQuery) //also have it
+                  }
+                  
+                  console.log(picturefill);//undefined
+                  
+                  ```
+                  </script>
+                  </div>
+                </section>
+                
+                <section>
+                  <h2>The Magic</h2>
+                  <div data-markdown>
+                  <script type="text/template">
+                  ```javascript
+                  define(['jquery'] , function ($) {
+                      return function () {};
+                  });
+                  ```
+                  </script>
+                  </div>
+                  <h3>Asynchronicity!</h3>
+                </section>
+                
+                <section>
+                  <h2>Setting it Up</h2>
+                  <div data-markdown>
+                  <script type="text/template">
+                  ```javascript
+                  require.config({
+                    baseUrl:'js/'
+                    paths:{
+                      baseUrl:
+                      plugins:"plugins",
+                      angular:"angular/angular.min",
+                      picturefill:"picturefill/picturefill",
+                      ngAnimate:'angular-animate/angular-animate.min',
+                      flexslider:'flexslider.min',
+                      jquery:'jquery.min'
+                    }
+                  });
+                  
+                  
+                  require(['angular','ngAnimate','picturefill','jquery'],start);
+                  ```
+                  </script>
+                  </div>
+                </section>
+                
+                <section>
+                  <h2>What about non-AMD modules?</h2>
+                  <div data-markdown>
+                  <script type="text/template">
+                  ```javascript
+                  require.config({
+                    baseUrl:'js/'
+                    paths:{
+                      baseUrl:
+                      plugins:"plugins",
+                      angular:"angular/angular.min",
+                      picturefill:"picturefill/picturefill",
+                      ngAnimate:'angular-animate/angular-animate.min',
+                      flexslider:'flexslider.min',
+                      jquery:'jquery.min'
+                    },
+                    
+                    //the awesome
+                    shim:{
+                      'flexslider':{deps:['jquery']}
+                    }
+                    //
+                  });
+                  ```
+                  </script>
+                  </div>
+                  </section>
+                  
+                <section>
+                  <h2>Benefits</h2>
+                  <ul>
+                    <li class="fragment">Async</li>
+                    <li class="fragment">Allows for many different, small js files to be used in development</li>
+                    <li class="fragment">Allows for CDN with local fallbacks</li>
+                    <li class="fragment">Consistency and maintainability</li>
+                    <li class="fragment">Use R.js for production to combine and minify all assets</li>
+                  </ul>
+                </section>
+                
+                <section>
+                  <h2>Questions? Thanks!</h2>
+                </section>
+                
+            </div><!-- .slides -->
+
+        </div><!-- .reveal -->
+
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/lib/js/head.min.js"></script>
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/js/reveal.min.js"></script>
+        <script src="http://barkleyus.github.io/showmetech/reveal.js/defaults.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-28667211-2', 'barkleyus.github.io');
+        ga('send', 'pageview');
+        </script>
+
+    </body>
+</html>
